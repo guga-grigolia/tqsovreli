@@ -1,5 +1,6 @@
 <?php
 use yii\helpers\Html;
+
 /* @var $this \yii\web\View */
 /* @var $content string */
 
@@ -12,13 +13,16 @@ use yii\helpers\Html;
     <meta charset="<?php echo Yii::$app->charset ?>"/>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title><?php echo Html::encode($this->title) ?></title>
+    <script src="js/modernizr.min.js"></script>
     <?php $this->head() ?>
     <?php echo Html::csrfMetaTags() ?>
 </head>
 <body>
-<?php $this->beginBody() ?>
+<div class="body">
+    <?php $this->beginBody() ?>
     <?php echo $content ?>
-<?php $this->endBody() ?>
+    <?php $this->endBody() ?>
+</div>
 </body>
 </html>
 <?php $this->endPage() ?>
