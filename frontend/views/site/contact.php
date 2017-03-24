@@ -6,8 +6,9 @@ use yii\captcha\Captcha;
 /* @var $this yii\web\View */
 /* @var $form yii\widgets\ActiveForm */
 /* @var $model \frontend\models\ContactForm */
-
-$this->title = Yii::t('frontend','Contact');
+/** @var \centigen\i18ncontent\models\Page $contact */
+$contact = \centigen\i18ncontent\models\Page::findBySlug('contact',\centigen\i18ncontent\models\Page::STATUS_PUBLISHED);
+$this->title = $contact->getTitle();
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="container">
@@ -27,28 +28,8 @@ $this->params['breadcrumbs'][] = $this->title;
             <?php ActiveForm::end(); ?>
         </div>
         <div class="col-md-6">
-
-            <h4 class="heading-primary mt-lg">Get in <strong>Touch</strong></h4>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur eget leo at velit imperdiet varius. In eu ipsum vitae velit congue iaculis vitae at risus. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-
-            <hr>
-
-            <h4 class="heading-primary">The <strong>Office</strong></h4>
-            <ul class="list list-icons list-icons-style-3 mt-xlg">
-                <li><i class="fa fa-map-marker"></i> <strong>Address:</strong> 1234 Street Name, City Name, United States</li>
-                <li><i class="fa fa-phone"></i> <strong>Phone:</strong> (123) 456-789</li>
-                <li><i class="fa fa-envelope"></i> <strong>Email:</strong> <a href="mailto:mail@example.com">mail@example.com</a></li>
-            </ul>
-
-            <hr>
-
-            <h4 class="heading-primary">Business <strong>Hours</strong></h4>
-            <ul class="list list-icons list-dark mt-xlg">
-                <li><i class="fa fa-clock-o"></i> Monday - Friday - 9am to 5pm</li>
-                <li><i class="fa fa-clock-o"></i> Saturday - 9am to 2pm</li>
-                <li><i class="fa fa-clock-o"></i> Sunday - Closed</li>
-            </ul>
-
+            <h4 class="heading-primary mt-lg"><?php echo Yii::t('frontend','Get in') ?><strong><?php echo Yii::t('frontend','Touch') ?></strong></h4>
+            <?php echo $contact->getBody() ?>
         </div>
     </div>
 </div>
