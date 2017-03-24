@@ -18,16 +18,6 @@ class FrontendAsset extends AssetBundle
     public $basePath = '@webroot';
     public $baseUrl = '@web';
 
-    public $css = [
-        'css/animate.min.css',
-        'css/owl.carousel.min.css',
-        'css/owl.theme.default.min.css',
-        'css/magnific-popup.min.css',
-        'css/theme.css',
-        'css/theme-elements.css',
-        'css/theme-shop.css',
-    ];
-
     public $js = [
         'js/jquery.min.js',
         'js/jquery.appear.min.js',
@@ -36,12 +26,27 @@ class FrontendAsset extends AssetBundle
         'js/bootstrap.min.js',
         'js/common.min.js',
         'js/jquery.lazyload.min.js',
-        'js/isotope.min.js',
+        'js/jquery.isotope.min.js',
         'js/owl.carousel.min.js',
         'js/jquery.magnific-popup.min.js',
         'js/vide.min.js',
-        'js/theme.init.js',
-        'js/app.js',
+        'js/jquery.themepunch.tools.min.js',
+        'js/jquery.themepunch.revolution.min.js',
+        'js/jquery.flipshow.min.js',
+        'js/theme.js',
+        'js/view.home.js',
+    ];
+
+    public $css = [
+        'css/animate.min.css',
+        'css/owl.carousel.min.css',
+        'css/owl.theme.default.min.css',
+        'css/magnific-popup.min.css',
+        'css/theme.css',
+        'css/theme-elements.css',
+        'css/theme-shop.css',
+        'css/font-awesome.min.css',
+        'css/skins/default.css',
     ];
 
     public $depends = [
