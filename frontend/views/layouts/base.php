@@ -10,7 +10,15 @@ use yii\helpers\Url;
 /* @var $content string */
 
 $this->beginContent('@frontend/views/layouts/_clear.php');
-
+$portfolio = \centigen\i18ncontent\models\ArticleCategory::find()->active()->bySlug('portfolio')->one();
+$portfolioItems = \centigen\i18ncontent\models\ArticleCategory::find()->active()->byParentId($portfolio->id)->all();
+$pItems = [];
+/** @var \centigen\i18ncontent\models\ArticleCategory $item */
+foreach ($portfolioItems as $item){
+    $pItems[] = [
+      'label' => $item->getTitle(), 'url' => ['portfolio/index', 'slug' => $item->slug]
+    ];
+}
 ?>
 <?php
 //NavBar::begin([
@@ -65,17 +73,8 @@ $this->beginContent('@frontend/views/layouts/_clear.php');
                                                     'url' => ['/']
                                                 ],
                                                 [
-                                                    'label' => Yii::t('frontend', 'Portfolio'),
-                                                    'items' => [
-                                                        [
-                                                            'label' => 'test',
-                                                            'url' => 'test'
-                                                        ],
-                                                        [
-                                                            'label' => 'test',
-                                                            'url' => 'test'
-                                                        ]
-                                                    ]
+                                                    'label' => $portfolio->getTitle(),
+                                                    'items' => $pItems
                                                 ],
                                                 [
                                                     'label' => Yii::t('frontend', 'About'),
