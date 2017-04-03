@@ -2,7 +2,9 @@
 
 namespace frontend\models\search;
 
+use centigen\base\helpers\QueryHelper;
 use centigen\i18ncontent\models\Article;
+use centigen\i18ncontent\models\ArticleCategoryArticle;
 use yii\base\Model;
 use yii\data\ActiveDataProvider;
 
@@ -11,13 +13,14 @@ use yii\data\ActiveDataProvider;
  */
 class ArticleSearch extends Article
 {
+    public $category_id;
     /**
      * @inheritdoc
      */
     public function rules()
     {
         return [
-            [['id', 'category_id'], 'integer'],
+            [['id'], 'integer'],
             [['slug', 'title'], 'safe'],
         ];
     }
@@ -37,21 +40,23 @@ class ArticleSearch extends Article
      */
     public function search($params)
     {
+        $a = Article::tableName();
         $query = Article::find()->published();
+        $query->innerJoin(ArticleCategoryArticle::tableName().' ac',"ac.article_id = $a.id");
 
         $dataProvider = new ActiveDataProvider([
             'query' => $query,
         ]);
+        if(isset($params['ArticleSearch']['category_id'])){
+            $query->andWhere(['ac.category_id' => $params['ArticleSearch']['category_id']]);
 
-        if (!($this->load($params) && $this->validate())) {
-            return $dataProvider;
         }
-
+        $query->orderBy("$a.position ASC");
         $query->andFilterWhere([
             'id' => $this->id,
             'slug' => $this->slug,
-            'category_id' => $this->category_id,
         ]);
+
 
         $query->andFilterWhere(['like', 'title', $this->title]);
 

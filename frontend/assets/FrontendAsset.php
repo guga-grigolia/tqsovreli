@@ -35,6 +35,7 @@ class FrontendAsset extends AssetBundle
         'js/jquery.flipshow.min.js',
         'js/theme.js',
         'js/view.home.js',
+        'js/theme.init.js'
     ];
 
     public $css = [
