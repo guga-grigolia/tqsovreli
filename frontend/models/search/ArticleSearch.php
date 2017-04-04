@@ -4,6 +4,7 @@ namespace frontend\models\search;
 
 use centigen\base\helpers\QueryHelper;
 use centigen\i18ncontent\models\Article;
+use centigen\i18ncontent\models\ArticleCategory;
 use centigen\i18ncontent\models\ArticleCategoryArticle;
 use yii\base\Model;
 use yii\data\ActiveDataProvider;
@@ -43,12 +44,13 @@ class ArticleSearch extends Article
         $a = Article::tableName();
         $query = Article::find()->published();
         $query->innerJoin(ArticleCategoryArticle::tableName().' ac',"ac.article_id = $a.id");
+        $query->innerJoin(ArticleCategory::tableName().' c',"ac.category_id = c.id");
 
         $dataProvider = new ActiveDataProvider([
             'query' => $query,
         ]);
-        if(isset($params['ArticleSearch']['category_id'])){
-            $query->andWhere(['ac.category_id' => $params['ArticleSearch']['category_id']]);
+        if(isset($params['slug'])){
+            $query->andWhere(['c.slug' => $params['slug']]);
 
         }
         $query->orderBy("$a.position ASC");
