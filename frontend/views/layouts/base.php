@@ -35,14 +35,15 @@ foreach ($portfolioItems as $item){
 //                        ]]); ?>
 <?php //NavBar::end(); ?>
     <header id="header"
-            data-plugin-options="{'stickyEnabled': true, 'stickyEnableOnBoxed': true, 'stickyEnableOnMobile': true, 'stickyStartAt': 57, 'stickySetTop': '-57px', 'stickyChangeLogo': true}">
+            data-plugin-options="{'stickyEnabled': true, 'stickyEnableOnBoxed': true, 'stickyEnableOnMobile': true,
+            'stickyStartAt': 30, 'stickySetTop': '-5px', 'stickyChangeLogo': true}">
         <div class="header-body">
             <div class="header-container container">
                 <div class="header-row">
                     <div class="header-column">
                         <div class="header-logo">
                             <a href="index.html">
-                                <h2>TQsovreli</h2>
+                                <h2 data-sticky-width="82" data-sticky-height="40" data-sticky-top="33">TQsovreli</h2>
                             </a>
                         </div>
                     </div>
@@ -103,10 +104,8 @@ foreach ($portfolioItems as $item){
             <div class="container">
                 <div class="row">
                     <div class="col-md-8">
-                        <a href="index.html" class="logo">
-                            <h2>TQsovreli</h2>
-                            <p>© Copyright <?php echo date('Y',time())?>. All Rights Reserved.</p>
-                        </a>
+                        <h2>TQsovreli</h2>
+                        <p>© Copyright <?php echo date('Y',time())?>. All Rights Reserved.</p>
                     </div>
                     <div class="col-md-4">
                         <nav id="sub-menu">

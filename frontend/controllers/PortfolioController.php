@@ -32,7 +32,11 @@ class PortfolioController extends Controller
     }
 
     public function actionView($slug){
-        $model = Article::find()->bySlug($slug)->all();
+        $model = Article::find()->bySlug($slug)->one();
+
+        return $this->render('view',[
+           'model' => $model
+        ]);
 
     }
 

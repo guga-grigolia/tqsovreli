@@ -5,15 +5,19 @@
  * Date: 3/25/2017
  * Time: 12:03 AM
  */
+use yii\helpers\Url;
 use yii\widgets\LinkPager;
 
 $this->title = Yii::t('frontend', 'Portfolio');
 ?>
-<section class="section section-tertiary section-no-border pb-md mt-none">
+<section class="page-header">
     <div class="container">
-        <div class="row mt-xl">
-            <div class="col-md-10 col-md-offset-2 pt-xlg mt-xlg align-right">
-                <h1 class="text-uppercase font-weight-light mt-xl text-color-primary"><?php echo Yii::t('frontend', 'Portfolio') ?></h1>
+        <div class="row">
+            <div class="col-md-12">
+                <ul class="breadcrumb">
+                    <li><a href="<?php echo Url::to('/');?>"><?php echo Yii::t('frontend', 'Home') ?></a></li>
+                    <li class="active"><?php echo $this->title ?></li>
+                </ul>
             </div>
         </div>
     </div>

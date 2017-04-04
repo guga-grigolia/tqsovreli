@@ -26,7 +26,7 @@ foreach ($model->articleAttachments as $attachment){
                  data-plugin-options="{'items': <?php echo count($imageUrls); ?>, 'margin': 10, 'animateOut': 'fadeOut', 'autoplay': true, 'autoplayTimeout': 3000}">
                 <?php foreach ($imageUrls as $url): ?>
                 <div>
-                    <a href="<? echo Url::to(['/portfolio/view', 'id' => $model->id]); ?>">
+                    <a href="<?php echo Url::to(['/portfolio/view', 'slug' => $model->slug]); ?>">
                         <img src="<?php echo $url; ?>"
                              class="img-responsive" alt="">
                     </a>
