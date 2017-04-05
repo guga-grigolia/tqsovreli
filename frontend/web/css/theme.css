@@ -3096,7 +3096,7 @@ html.dark .text-muted {
 	background: #0e0e0e;
 	border-top: 4px solid #0e0e0e;
 	font-size: 0.9em;
-	margin-top: 50px;
+	/*margin-top: 50px;*/
 	position: relative;
 	clear: both;
 }
