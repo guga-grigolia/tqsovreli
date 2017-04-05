@@ -14,9 +14,9 @@ $portfolio = \centigen\i18ncontent\models\ArticleCategory::find()->active()->byS
 $portfolioItems = \centigen\i18ncontent\models\ArticleCategory::find()->active()->byParentId($portfolio->id)->all();
 $pItems = [];
 /** @var \centigen\i18ncontent\models\ArticleCategory $item */
-foreach ($portfolioItems as $item){
+foreach ($portfolioItems as $item) {
     $pItems[] = [
-      'label' => $item->getTitle(), 'url' => ['portfolio/index', 'slug' => $item->slug]
+        'label' => $item->getTitle(), 'url' => ['portfolio/index', 'slug' => $item->slug]
     ];
 }
 ?>
@@ -84,6 +84,14 @@ foreach ($portfolioItems as $item){
                                                 [
                                                     'label' => Yii::t('frontend', 'Contact Us'),
                                                     'url' => ['site/contact']
+                                                ],
+                                                [
+                                                    'label' => '<img src="/img/en.png" width="24">',
+                                                    'url' => ['/site/set-locale', 'locale' => 'en-US']
+                                                ],
+                                                [
+                                                    'label' => '<img src="/img/ge.png" width="24">',
+                                                    'url' => ['/site/set-locale', 'locale' => 'ka-GE']
                                                 ]
                                             ]
                                         ]); ?>
@@ -97,7 +105,7 @@ foreach ($portfolioItems as $item){
         </div>
     </header>
 
-    <?php echo $content ?>
+<?php echo $content ?>
 
     <footer id="footer">
         <div class="footer-copyright">
@@ -105,7 +113,7 @@ foreach ($portfolioItems as $item){
                 <div class="row">
                     <div class="col-md-8">
                         <h2>TQsovreli</h2>
-                        <p>© Copyright <?php echo date('Y',time())?>. All Rights Reserved.</p>
+                        <p>© Copyright <?php echo date('Y', time()) ?>. All Rights Reserved.</p>
                     </div>
                     <div class="col-md-4">
                         <nav id="sub-menu">

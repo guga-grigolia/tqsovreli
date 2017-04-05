@@ -521,6 +521,13 @@ html:not(.sticky-header-active) #header.header-transparent-sticky-deactive .head
 		text-transform: none;
 	}
 
+	#mainNav .dropdown-menu > .active > a,
+	#mainNav .dropdown-menu > .active > a:focus,
+	#mainNav .dropdown-menu > .active > a:hover {
+		background-color: #3f95dc;
+		color: #fff!important;
+	}
+
 	#header .header-nav-main nav > ul > li.dropdown .dropdown-menu li.dropdown-submenu {
 		position: relative;
 	}
