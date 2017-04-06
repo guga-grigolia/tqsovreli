@@ -43,7 +43,7 @@ foreach ($portfolioItems as $item) {
                     <div class="header-column">
                         <div class="header-logo">
                             <a href="index.html">
-                                <h2 data-sticky-width="82" data-sticky-height="40" data-sticky-top="33">TQsovreli</h2>
+                                <h2 data-sticky-width="82" data-sticky-height="40" data-sticky-top="33">T.Qsovreli</h2>
                             </a>
                         </div>
                     </div>
@@ -112,7 +112,7 @@ foreach ($portfolioItems as $item) {
             <div class="container">
                 <div class="row">
                     <div class="col-md-8">
-                        <h2>TQsovreli</h2>
+                        <h2>T.Qsovreli</h2>
                         <p>© Copyright <?php echo date('Y', time()) ?>. All Rights Reserved.</p>
                     </div>
                     <div class="col-md-4">
