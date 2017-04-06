@@ -58,15 +58,19 @@ $config = [
 
         'mailer' => [
             'class' => 'yii\swiftmailer\Mailer',
-            'host' => getenv('SMTP_HOST'),
-            'username' => getenv('SMTP_USERNAME'),
-            'password' => getenv('SMTP_PASSWORD'),
-            'port' => getenv('SMTP_PORT'),
-            'encryption' => getenv('SMTP_ENCRYPTION'),
-            'messageConfig' => [
-                'charset' => 'UTF-8',
-                'from' => env('ADMIN_EMAIL')
+            'transport' => [
+                'class' => 'Swift_SmtpTransport',
+                'host' => getenv('SMTP_HOST'),
+                'username' => getenv('SMTP_USERNAME'),
+                'password' => getenv('SMTP_PASSWORD'),
+                'port' => getenv('SMTP_PORT'),
+                'encryption' => getenv('SMTP_ENCRYPTION'),
+                'messageConfig' => [
+                    'charset' => 'UTF-8',
+                    'from' => env('ADMIN_EMAIL')
+                ]
             ]
+
         ],
 
         'db'=>[
