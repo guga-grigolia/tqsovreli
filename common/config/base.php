@@ -94,21 +94,6 @@ $config = [
 
         'i18n' => [
             'translations' => [
-                'app'=>[
-                    'class' => 'yii\i18n\PhpMessageSource',
-                    'basePath'=>'@common/messages',
-                ],
-                '*'=> [
-                    'class' => 'yii\i18n\PhpMessageSource',
-                    'basePath'=>'@common/messages',
-                    'fileMap'=>[
-                        'common'=>'common.php',
-                        'backend'=>'backend.php',
-                        'frontend'=>'frontend.php',
-                    ],
-                    'on missingTranslation' => ['\centigen\i18ncontent\Module', 'missingTranslation']
-                ],
-                /* Uncomment this code to use DbMessageSource
                  '*'=> [
                     'class' => 'yii\i18n\DbMessageSource',
                     'sourceMessageTable'=>'{{%i18n_source_message}}',
@@ -117,7 +102,6 @@ $config = [
                     'cachingDuration' => 3600,
                     'on missingTranslation' => ['\centigen\i18ncontent\Module', 'missingTranslation']
                 ],
-                */
             ],
         ],
 
