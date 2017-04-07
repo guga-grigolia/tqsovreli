@@ -64,11 +64,11 @@ $config = [
                 'username' => getenv('SMTP_USERNAME'),
                 'password' => getenv('SMTP_PASSWORD'),
                 'port' => getenv('SMTP_PORT'),
-                'encryption' => getenv('SMTP_ENCRYPTION'),
-                'messageConfig' => [
-                    'charset' => 'UTF-8',
-                    'from' => env('ADMIN_EMAIL')
-                ]
+                'encryption' => getenv('SMTP_ENCRYPTION')
+            ],
+            'messageConfig' => [
+                'charset' => 'UTF-8',
+                'from' => env('ADMIN_EMAIL')
             ]
 
         ],
