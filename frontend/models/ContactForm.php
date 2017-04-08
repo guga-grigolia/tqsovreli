@@ -55,8 +55,6 @@ class ContactForm extends Model
      */
     public function contact($email)
     {
-        \Yii::$app->mailer->transport->setUsername(getenv('SMTP_USERNAME'));
-        \Yii::$app->mailer->transport->setPassword(getenv('SMTP_PASSWORD'));
         if ($this->validate()) {
             return Yii::$app->mailer->compose()
                 ->setTo($email)
