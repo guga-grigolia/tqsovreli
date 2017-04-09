@@ -23,7 +23,7 @@ foreach ($model->articleAttachments as $attachment){
     <span class="thumb-info thumb-info-lighten thumb-info-no-zoom thumb-info-hide-wrapper-bg">
         <span class="thumb-info-wrapper">
             <div class="owl-carousel owl-theme nav-inside m-none"
-                 data-plugin-options="{'items': <?php echo count($imageUrls); ?>, 'margin': 10, 'animateOut': 'fadeOut', 'autoplay': true, 'autoplayTimeout': 3000}">
+                 data-plugin-options="{'items': 1, 'margin': 10, 'animateOut': 'fadeOut', 'autoplay': true, 'autoplayTimeout': 3000}">
                 <?php foreach ($imageUrls as $url): ?>
                 <div>
                     <a href="<?php echo Url::to(['/portfolio/view', 'slug' => $model->slug]); ?>">
