@@ -44,7 +44,7 @@ $config = [
 
         'formatter'=>[
             'class'=>'centigen\base\i18n\Formatter',
-            'datetimeFormat' => 'DD/MM/YYYY HH:mm'
+            'datetimeFormat' => 'd/M/y H:i'
         ],
 
         'glide' => [
