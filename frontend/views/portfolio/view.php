@@ -13,11 +13,13 @@ $this->title = Yii::t('frontend', 'Portfolio');
 
 $imageUrls = [];
 /** @var \centigen\i18ncontent\models\Article $model */
-if($model->getThumbnailUrl()){
+$this->params['model'] = $model;
+if ($model->getThumbnailUrl()) {
     $imageUrls[] = $model->getThumbnailUrl();
 }
+
 /** @var \centigen\i18ncontent\models\ArticleAttachment $attachment */
-foreach ($model->articleAttachments as $attachment){
+foreach ($model->articleAttachments as $attachment) {
     $imageUrls[] = $attachment->getUrl();
 }
 
@@ -29,7 +31,7 @@ foreach ($model->articleAttachments as $attachment){
                 <ul class="breadcrumb">
                     <li><a href="<?php echo Url::to('/'); ?>"><?php echo Yii::t('frontend', 'Home') ?></a>
                     </li>
-                    <li ><a href="<?php echo Url::to('/portfolio/index'); ?>"><?php echo $this->title ?></a></li>
+                    <li><a href="<?php echo Url::to('/portfolio/index'); ?>"><?php echo $this->title ?></a></li>
                     <li class="active"><?php echo $model->getTitle() ?></li>
                 </ul>
             </div>
@@ -43,13 +45,17 @@ foreach ($model->articleAttachments as $attachment){
             <div class="portfolio-title">
                 <div class="row">
                     <div class="portfolio-nav-all col-md-1">
-                        <a href=""<?php echo Url::to('/portfolio/index'); ?>" data-tooltip data-original-title="Back to list"><i
-                                    class="fa fa-th"></i></a>
+                        <a href=""<?php echo Url::to('/portfolio/index'); ?>" data-tooltip data-original-title="Back to
+                        list"><i
+                                class="fa fa-th"></i></a>
                     </div>
                     <div class="col-md-10 center">
                         <h2 class="mb-none"><?php echo $model->getTitle(); ?></h2>
                     </div>
                     <div class="portfolio-nav col-md-1">
+                        <div class="fb-like" data-href="<?php echo Url::to(['portfolio/view', 'slug' => $model->slug], true); ?>"
+                             data-layout="button" data-action="like" data-size="small" data-show-faces="true"
+                             data-share="true"></div>
                     </div>
                 </div>
             </div>
@@ -63,9 +69,9 @@ foreach ($model->articleAttachments as $attachment){
 
         <ul class="portfolio-list lightbox m-none"
             data-plugin-options="{'delegate': 'a.lightbox-portfolio', 'type': 'image', 'gallery': {'enabled': true}}">
-            <?php foreach ($imageUrls as $url):?>
-            <li class="col-md-3 col-sm-6 col-xs-12">
-                <div class="portfolio-item">
+            <?php foreach ($imageUrls as $url): ?>
+                <li class="col-md-3 col-sm-6 col-xs-12">
+                    <div class="portfolio-item">
                     <span class="thumb-info thumb-info-lighten thumb-info-centered-icons">
                         <span class="thumb-info-wrapper">
                             <img src="<?php echo $url; ?>" class="img-responsive" alt="">
@@ -77,19 +83,18 @@ foreach ($model->articleAttachments as $attachment){
                             </span>
                         </span>
                     </span>
-                </div>
-            </li>
+                    </div>
+                </li>
             <?php endforeach; ?>
         </ul>
     </div>
-
 
 
     <div class="row">
 
         <div class="col-md-12">
 
-            <h5 class="mt-lg mb-sm"><?php echo Yii::t('frontend','Project Description')?></h5>
+            <h5 class="mt-lg mb-sm"><?php echo Yii::t('frontend', 'Project Description') ?></h5>
             <p class="mt-none mb-xlg"><?php echo $model->getBody(); ?></p>
 
         </div>
