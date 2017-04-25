@@ -42,7 +42,7 @@ foreach ($portfolioItems as $item) {
                 <div class="header-row">
                     <div class="header-column">
                         <div class="header-logo">
-                            <a href="index.html">
+                            <a href="/">
                                 <h2 data-sticky-width="82" data-sticky-height="40" data-sticky-top="33">T.Qsovreli</h2>
                             </a>
                         </div>
